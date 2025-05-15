@@ -5,13 +5,16 @@
   <title>Cybersecurity Diagnostic Test</title>
   <style>
     body {
-    font-family: 'Segoe UI', sans-serif;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
-    color: #1a1a1a;
-  }
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(-45deg, #e3f2fd, #fffde7, #e1f5fe, #fce4ec);
+  background-size: 400% 400%;
+  animation: animatedGradient 15s ease infinite;
+  color: #1a1a1a;
+}
+
 
   h1 {
     font-size: 36px;
@@ -107,6 +110,18 @@
       padding: 18px;
     }
   }
+  @keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
   </style>
 </head>
 <body>
