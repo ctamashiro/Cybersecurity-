@@ -24,6 +24,7 @@ Correct Answer: ${correct}
 Please explain whether the answer is correct and why, in simple and educational terms.
 DO NOT ask follow-up questions or offer to review more material or tell me to keep up the great work. Just give the explanation only.
 JUST DO NOT ask any questions no matter what, you can format things like "Why is it important" as like a heading, but no follow up questions
+do not ask me any questions whatsoever.
 `;
 
   try {
