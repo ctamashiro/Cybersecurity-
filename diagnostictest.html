@@ -100,6 +100,33 @@
     text-align: center;
     margin-top: 30px;
   }
+  .start-btn-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .start-btn-container h2 {
+        font-size: 40px;
+        margin: 0;
+      }
+
+      .start-btn-container .start-btn {
+        background: #e63946;
+        color: #fff;
+        padding: 8px 32px;
+        border-radius: 8px;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
 
   @media (max-width: 700px) {
     .options {
@@ -126,17 +153,19 @@
 </head>
 <body>
   <div class="start-btn-container">
-      <h2>Diagnostic Cybersecurity Quiz</h2>
-      <p>Test your knowledge across various categories</p>
-      <button class="start-btn">Start Quiz</button>
+    <h2>Diagnostic Cybersecurity Quiz</h2>
+    <p>Test your knowledge across various categories</p>
+    <button class="start-btn">Start Quiz</button>
+  </div>
+  
+  <div id="quiz-container" style="display: none;">
+    <h1>Cybersecurity Quiz</h1>
+    <h2 class="question"></h2>
+    <div class="options"></div>
+    <button class="next-btn" disabled>Next</button>
+    <div id="results-button-container">
+      <button id="generate-results-btn">Generate Results</button>
     </div>
-
-  <h1>Cybersecurity Quiz</h1>
-  <h2 class="question"></h2>
-  <div class="options"></div>
-  <button class="next-btn" disabled>Next</button>
-  <div id="results-button-container">
-    <button id="generate-results-btn">Generate Results</button>
   </div>
 
   <script>
@@ -187,16 +216,24 @@
       },
     ];
 
+    const startBtn = document.querySelector(".start-btn");
     const questionEl = document.querySelector(".question");
     const optionsEl = document.querySelector(".options");
     const nextBtn = document.querySelector(".next-btn");
+    const startContainer = document.querySelector(".start-btn-container");
     const resultsContainer = document.getElementById("results-button-container");
     const resultsBtn = document.getElementById("generate-results-btn");
+    const quizContainer = document.getElementById("quiz-container");
 
     let currentIndex = 0;
     let answers = [];
     let answered = false;
 
+    startBtn.addEventListener("click", () => {
+        startContainer.style.display = "none";
+        quizContainer.style.display = "block";
+        loadQuestion();
+      });
     function loadQuestion() {
       if (currentIndex >= quizData.length) {
         nextBtn.style.display = "none";
